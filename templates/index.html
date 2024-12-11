@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gráficos en Tiempo Real</title>
+    <title>Deusto Weather</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -20,47 +20,16 @@
             <canvas id="temperatureChart" class="chart-full"></canvas>
         </div>
 
-        <!-- Gráficos de Humedad y Probabilidad de Lluvia -->
-        <div class="chart-row">
-            <div class="chart-container chart-half">
-                <h2 id="humidity-title">Humedad</h2>
-                <canvas id="humidityChart"></canvas>
-            </div>
-            <div class="chart-container chart-half">
-                <h2 id="rain-title">Lluvia</h2>
-                <canvas id="rainChart"></canvas>
-            </div>
+        <!-- Gráfico de Humedad -->
+        <div class="chart-container chart-half">
+            <h2 id="humidity-title">Humedad</h2>
+            <canvas id="humidityChart"></canvas>
         </div>
 
-        <div class="chart-container">
-            <h2 id="temperature-title">UV radiation</h2>
-            <div class="uv-circle-container">
-                <div class="uv-circle">
-                    <div class="uv-needle"></div>
-                    <div class="uv-value-display">
-                        <span id="uv-value-circle">0.0</span>
-                    </div>
-                    <div class="uv-scale-text">
-                        <span class="low">LOW</span>
-                        <span class="moderate">MODERATE</span>
-                        <span class="high">HIGH</span>
-                        <span class="very-high">VERY HIGH</span>
-                        <span class="extreme">EXTREME</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Datos simples (dos filas con dos datos por fila) -->
-        <div class="data-row">
-            <div class="data-box">
-                <h3>Intensidad Lumínica</h3>
-                <p id="light-data">-- lux</p>
-            </div>
-            <div class="data-box">
-                <h3>Concentración de Polvo</h3>
-                <p id="dust-data">-- µg/m³</p>
-            </div>
+        <!-- Gráfico de Intensidad Lumínica -->
+        <div class="chart-container chart-half">
+            <h2 id="light-title">Intensidad Lumínica</h2>
+            <canvas id="lightChart"></canvas>
         </div>
 
         <!-- Gráfico de Presión Atmosférica -->
@@ -71,9 +40,8 @@
     </div>
 
     <footer class="footer">
-    <p>&copy; 2024 Trio Calavera. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Trio Calavera. Todos los derechos reservados.</p>
     </footer>
-
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
