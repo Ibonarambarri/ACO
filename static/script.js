@@ -184,7 +184,7 @@ function updateCharts(data,r) {
     const luxValues = data.Lux || [];
 
     // Generar timestamps para ejes X si no existen
-    const timestamps = temps.map((_, index) => `Punto ${index + 1}`);
+    const timestamps = temps.map((_, index) => ``);
 
     // Actualizar gráfico de Temperatura
     temperatureChart.data.labels = timestamps;
