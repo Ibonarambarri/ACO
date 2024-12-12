@@ -6,13 +6,14 @@ import json
 app = Flask(__name__)
 
 # Datos simulados iniciales
+# En app.py
 data = {
-    'Temp': [],
-    'Presion': [],
-    'Humedad': [],
-    'Lux': []
+    'Temp': [10, 20, 30],
+    'Presion': [1000, 1010, 1020],
+    'Humedad': [50, 60, 70],
+    'Lux': [500, 600, 700]
 }
-
+"""
 # Actualiza los datos dinámicamente desde la función readData
 def update_data():
     global data  # Necesario para modificar el diccionario global
@@ -34,7 +35,7 @@ def update_data():
                     data[key] = data[key][-100:]
         except Exception as e:
             print(f"Error en update_data: {e}")
-
+"""
 # Rutas
 @app.route('/')
 def index():
@@ -43,10 +44,10 @@ def index():
 @app.route('/data')
 def get_data():
     return jsonify(data)
-
+"""
 # Hilo para actualizar datos
 thread = threading.Thread(target=update_data, daemon=True)
 thread.start()
-
+"""
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
