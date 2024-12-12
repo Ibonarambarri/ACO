@@ -2,7 +2,6 @@ import threading
 from flask import Flask, jsonify, render_template
 from datos import readData
 import json
-import time
 
 app = Flask(__name__)
 
@@ -36,7 +35,6 @@ def update_data():
                     data[key] = data[key][-100:]
         except Exception as e:
             print(f"Error en update_data: {e}")
-        time.sleep(60)
 
 # Rutas
 @app.route('/')

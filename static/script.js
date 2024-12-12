@@ -1,7 +1,6 @@
 // Contextos de gráficos
 const temperatureCtx = document.getElementById('temperatureChart').getContext('2d');
 const humidityCtx = document.getElementById('humidityChart').getContext('2d');
-const rainCtx = document.getElementById('rainChart').getContext('2d');
 const pressureCtx = document.getElementById('pressureChart').getContext('2d');
 const lightCtx = document.getElementById('lightChart').getContext('2d');
 
@@ -40,22 +39,6 @@ const humidityChart = new Chart(humidityCtx, {
         datasets: [{
             data: [0, 100],
             backgroundColor: ['rgba(54, 162, 235, 0.6)', 'rgba(200, 200, 200, 0.2)']
-        }]
-    },
-    options: {
-        responsive: true,
-        cutout: '70%'
-    }
-});
-
-// Gráfico de Probabilidad de Lluvia
-const rainChart = new Chart(rainCtx, {
-    type: 'doughnut',
-    data: {
-        labels: ["actualizar"],
-        datasets: [{
-            data: [0, 100],
-            backgroundColor: ['rgba(75, 192, 192, 0.6)', 'rgba(200, 200, 200, 0.2)']
         }]
     },
     options: {
@@ -218,9 +201,8 @@ function updateCharts(data,r) {
     const rainProbability = r;
     console.log('Probabilidad de lluvia calculada:', rainProbability);
 
-    rainChart.data.datasets[0].data = rainProbability;
     document.getElementById('rain-title').innerText = `Probabilidad de Lluvia: ${rainProbability}%`;
-    rainChart.update();
+
 }
 
 // Llamada inicial y repetición cada 2 segundos
